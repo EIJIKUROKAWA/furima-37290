@@ -63,4 +63,4 @@
 
 - belongs_to :purchase_record
 
-test
+
