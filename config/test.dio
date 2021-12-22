@@ -34,7 +34,7 @@
                     <mxGeometry y="306" width="160" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="73" value="items" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;fontColor=#4719FF;" parent="1" vertex="1">
-                    <mxGeometry x="450" y="40" width="160" height="386" as="geometry"/>
+                    <mxGeometry x="450" y="40" width="160" height="426" as="geometry"/>
                 </mxCell>
                 <mxCell id="80" value="item_name" style="whiteSpace=wrap;html=1;align=center;" parent="73" vertex="1">
                     <mxGeometry y="26" width="160" height="40" as="geometry"/>
@@ -57,19 +57,22 @@
                 <mxCell id="83" value="price" style="whiteSpace=wrap;html=1;align=center;" parent="73" vertex="1">
                     <mxGeometry y="266" width="160" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="97" value="user_id" style="whiteSpace=wrap;html=1;align=center;" parent="73" vertex="1">
+                <mxCell id="97" value="user" style="whiteSpace=wrap;html=1;align=center;" parent="73" vertex="1">
                     <mxGeometry y="306" width="160" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="131" value="area_id" style="whiteSpace=wrap;html=1;align=center;" parent="73" vertex="1">
                     <mxGeometry y="346" width="160" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="98" value="shipping" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;fontColor=#4A2EFF;" parent="1" vertex="1">
-                    <mxGeometry x="450" y="480" width="160" height="302" as="geometry"/>
+                <mxCell id="142" value="send_day_id" style="whiteSpace=wrap;html=1;align=center;fontColor=#000000;strokeColor=#000000;" vertex="1" parent="73">
+                    <mxGeometry y="386" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="98" value="shippings" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;fontColor=#4A2EFF;" parent="1" vertex="1">
+                    <mxGeometry x="453" y="480" width="160" height="302" as="geometry"/>
                 </mxCell>
                 <mxCell id="105" value="shipping_number" style="whiteSpace=wrap;html=1;align=center;" parent="98" vertex="1">
                     <mxGeometry y="26" width="160" height="36" as="geometry"/>
                 </mxCell>
-                <mxCell id="129" value="shipping_area" style="whiteSpace=wrap;html=1;align=center;" parent="98" vertex="1">
+                <mxCell id="129" value="area_id" style="whiteSpace=wrap;html=1;align=center;" parent="98" vertex="1">
                     <mxGeometry y="62" width="160" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="113" value="shipping_city" style="whiteSpace=wrap;html=1;align=center;" parent="98" vertex="1">
@@ -84,7 +87,7 @@
                 <mxCell id="106" value="telephone_namber" style="whiteSpace=wrap;html=1;align=center;" parent="98" vertex="1">
                     <mxGeometry y="222" width="160" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="107" value="purchase_record_id" style="whiteSpace=wrap;html=1;align=center;" parent="98" vertex="1">
+                <mxCell id="107" value="purchase_record" style="whiteSpace=wrap;html=1;align=center;" parent="98" vertex="1">
                     <mxGeometry y="262" width="160" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="109" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERoneToMany;startArrow=ERzeroToOne;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=0;" parent="1" source="57" target="82" edge="1">
@@ -93,23 +96,14 @@
                         <mxPoint x="350" y="340" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="110" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERzeroToMany;startArrow=ERzeroToOne;" parent="1" source="113" target="83" edge="1">
-                    <mxGeometry width="100" height="100" relative="1" as="geometry">
-                        <mxPoint x="630" y="520" as="sourcePoint"/>
-                        <mxPoint x="680" y="330" as="targetPoint"/>
-                    </mxGeometry>
+                <mxCell id="114" value="purchase_records" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;labelBorderColor=none;fontColor=#3C14FF;" parent="1" vertex="1">
+                    <mxGeometry x="100" y="461" width="160" height="106" as="geometry"/>
                 </mxCell>
-                <mxCell id="114" value="purchase_record" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;labelBorderColor=none;fontColor=#3C14FF;" parent="1" vertex="1">
-                    <mxGeometry x="100" y="461" width="160" height="146" as="geometry"/>
-                </mxCell>
-                <mxCell id="118" value="item_id" style="whiteSpace=wrap;html=1;align=center;" parent="114" vertex="1">
+                <mxCell id="118" value="item" style="whiteSpace=wrap;html=1;align=center;" parent="114" vertex="1">
                     <mxGeometry y="26" width="160" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="119" value="user_id" style="whiteSpace=wrap;html=1;align=center;" parent="114" vertex="1">
+                <mxCell id="119" value="user" style="whiteSpace=wrap;html=1;align=center;" parent="114" vertex="1">
                     <mxGeometry y="66" width="160" height="40" as="geometry"/>
-                </mxCell>
-                <mxCell id="122" value="shipping_id" style="whiteSpace=wrap;html=1;align=center;" parent="114" vertex="1">
-                    <mxGeometry y="106" width="160" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="124" style="edgeStyle=none;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;" parent="114" edge="1">
                     <mxGeometry relative="1" as="geometry">
@@ -129,10 +123,10 @@
                         <mxPoint x="370" y="390" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="134" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERzeroToMany;startArrow=ERmandOne;exitX=0;exitY=0.7;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="113" target="122" edge="1">
+                <mxCell id="144" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERmandOne;startArrow=ERmandOne;fontColor=#000000;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="1" source="119" target="103">
                     <mxGeometry width="100" height="100" relative="1" as="geometry">
-                        <mxPoint x="300" y="610" as="sourcePoint"/>
-                        <mxPoint x="270" y="580" as="targetPoint"/>
+                        <mxPoint x="310" y="560" as="sourcePoint"/>
+                        <mxPoint x="410" y="460" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
             </root>
