@@ -1,26 +1,66 @@
-# README
+##usersテーブル
 
--
+| Column             | Type     |   Options                 |
+|--------------------|----------|---------------------------|
+| nickname           | string   | null: false, unique: true |
+| emali              | string   | null: false, unique: true |
+| encrypted_password | string   | null: false               |
+| name_kanji         | string   | null: false               |
+| name_kana          | string   | null: false               |
+| birth              | date     | null: false               |
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Association
 
-Things you may want to cover:
+- has_many :items
+- has_many :purchase_records
 
-* Ruby version
+##itemsテーブル
 
-* System dependencies
+| Column           |  Type     |   Options                     |        
+|------------------|-----------|-------------------------------|              
+| item_name        | string    | null: false                   |
+| item_text        | text      | null: false                   |
+| item_category    | string    | null: false                   |
+| item_condition   | string    | null: false                   |
+| postage_included | string    | null: false                   |
+| price            | integer   | null: false                   |
+| user             | references| null:false, foreign_key: true |
+| from_area        | string    | null: false                   |
+| item_image       | string    | null: false                   |
 
-* Configuration
 
-* Database creation
+### Association
 
-* Database initialization
+- belongs_to :user
+- has_one :purchase_record
 
-* How to run the test suite
+##purchase_recordテーブル
 
-* Services (job queues, cache servers, search engines, etc.)
+| Column     |    Type    | Options                       |
+|------------|------------|-------------------------------|
+| item       | references | null:false, foreign_key: true |
+| user       | references | null:false, foreign_key: true |
+| shipping   | references | null:false, foreign_key: true |
 
-* Deployment instructions
+### Association
 
-* ...
+- belongs_to :users
+- belongs_to :items
+- belongs_to :shipping
+
+##shippingテーブル
+
+| Column           | Type       | Options                       |
+|------------------|------------|-------------------------------|
+| shipping_number  | integer    | null:false                    |
+| shipping_area    | string     | null:false                    |
+| shipping_city    | string     | null:false                    |
+| shipping_address | string     | null:false                    |
+| shipping_building| string     | null:false                    |
+| telephone_number | integer    | null:false                    |          
+| user             | references | null:false, foreign_key: true |
+| item             | references | null:false, foreign_key: true |
+
+### Association
+
+- has_many :purchase_records
