@@ -12,4 +12,7 @@ class User < ApplicationRecord
   validates :name_kana_last, presence: true, format: { with: /\A[ァ-ヶー－]+\z/ }
   validates :name_kana_first, presence: true, format: { with: /\A[ァ-ヶー－]+\z/ }
   validates :birth, presence: true
+ 
+  has_many :items
+
 end
