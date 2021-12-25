@@ -16,7 +16,7 @@ has_one_attached :image
 extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :genre
   belongs_to :item_quality
-  belomgs_to :okurisaki
+  belongs_to :okurisaki
   belongs_to :hassou
   belongs_to :haisouryou
 
