@@ -14,18 +14,18 @@ belongs_to :user
 has_one_attached :image
 
 extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to :genre
-  belongs_to :item_quality
-  belongs_to :okurisaki
-  belongs_to :hassou
-  belongs_to :haisouryou
+  belongs_to :item_category
+  belongs_to :Item_condition
+  belongs_to :postage_included
+  belongs_to :area
+  belongs_to :send_day
 
 
-  validates :item_quality_id, numericality: { other_than: 1 , message: "can't be blank"}
-  validates :genre_id, numericality: { other_than: 1 , message: "can't be blank"}
-  validates :haisouryou_id, numericality: { other_than: 1 , message: "can't be blank"}
-  validates :okurisaki_id, numericality: { other_than: 0 , message: "can't be blank"}
-  validates :hassou_id, numericality: { other_than: 1 , message: "can't be blank"}
+  validates :item_condition_id, numericality: { other_than: 1 , message: "can't be blank"}
+  validates :item_category_id, numericality: { other_than: 1 , message: "can't be blank"}
+  validates :postage_included_id, numericality: { other_than: 1 , message: "can't be blank"}
+  validates :area_id, numericality: { other_than: 0 , message: "can't be blank"}
+  validates :send_day_id, numericality: { other_than: 1 , message: "can't be blank"}
 
 
 

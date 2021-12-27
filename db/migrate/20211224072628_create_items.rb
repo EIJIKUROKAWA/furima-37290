@@ -10,11 +10,7 @@ class CreateItems < ActiveRecord::Migration[6.0]
       t.references :user, null:false,foreign_key: true
       t.integer :area_id, null:false
       t.integer :send_day_id, null:false
-      t.integer :okurisaki_id, null:false
-      t.integer :genre_id, null:false
-      t.integer :item_quality_id, null:false
-      t.integer :haisouryou_id, null:false
-      t.integer :hassou_id, null:false
+     
 
       t.timestamps
     end
