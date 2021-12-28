@@ -1,4 +1,5 @@
 class ItemCategory < ActiveHash::Base
+  include ActiveHash::Associations
   self.data = [
     { id: 1, name: '--' },
     { id: 2, name: 'レディース' },

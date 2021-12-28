@@ -8,7 +8,8 @@ validates :postage_included_id, presence: true
 validates :price, presence: true, inclusion: { in: 300..9_999_999 }, format: { with: /\A[0-9]+\z/ }
 validates :area_id, presence: true
 validates :send_day_id, presence: true
-validates :user, presence: true
+
+
 
 belongs_to :user  
 has_one_attached :image
@@ -26,6 +27,7 @@ extend ActiveHash::Associations::ActiveRecordExtensions
   validates :postage_included_id, numericality: { other_than: 1 , message: "can't be blank"}
   validates :area_id, numericality: { other_than: 0 , message: "can't be blank"}
   validates :send_day_id, numericality: { other_than: 1 , message: "can't be blank"}
+  validates :image, presence: true
 
 
 

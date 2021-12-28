@@ -1,4 +1,5 @@
 class SendDay < ActiveHash::Base
+  include ActiveHash::Associations
   self.data = [
     { id: 1, name: '--' },
     { id: 2, name: '１〜２日で発送' },
