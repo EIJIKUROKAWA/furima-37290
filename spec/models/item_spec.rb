@@ -92,7 +92,6 @@ RSpec.describe Item, type: :model do
         @item.item_category_id = nil
         @item.valid?
         expect(@item.errors.full_messages).to include("Item category can't be blank")
-
       end
       it '商品の状態 のidが空のとき' do
         @item.item_condition_id = nil
@@ -113,9 +112,7 @@ RSpec.describe Item, type: :model do
         @item.send_day_id = nil
         @item.valid?
         expect(@item.errors.full_messages).to include("Send day can't be blank")
-
       end
-
     end
   end
 end
