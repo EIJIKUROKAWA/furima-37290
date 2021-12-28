@@ -13,7 +13,7 @@ class Item < ApplicationRecord
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :item_category
-  belongs_to :Item_condition
+  belongs_to :item_condition
   belongs_to :postage_included
   belongs_to :area
   belongs_to :send_day
