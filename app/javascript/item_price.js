@@ -9,6 +9,4 @@ window.addEventListener('load', () => {
     ProfitDom.innerHTML = (Math.floor(inputValue - value_result));
   })
   });
-  const inputValue = priceInput.value;
-  const value_result = inputValue * 0.1;
-  ProfitDom.innerHTML = (Math.floor(inputValue - value_result));
+  
