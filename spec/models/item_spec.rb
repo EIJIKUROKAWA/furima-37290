@@ -47,7 +47,7 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Postage included can't be blank")
       end
       it '発送元の地域 が空のとき' do
-        @item.area_id = '0'
+        @item.area_id = 0
         @item.valid?
         expect(@item.errors.full_messages).to include("Area can't be blank")
       end
@@ -59,7 +59,7 @@ RSpec.describe Item, type: :model do
       end
 
       it '価格が299以下のとき' do
-        @item.price = '1'
+        @item.price =  1
         @item.valid?
         expect(@item.errors.full_messages).to include('Price is not included in the list')
       end
@@ -88,6 +88,34 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include('Price is not included in the list')
       end
+      it 'カテゴリー のidが空のとき' do
+        @item.item_category_id = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Item category can't be blank")
+
+      end
+      it '商品の状態 のidが空のとき' do
+        @item.item_condition_id = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Item condition can't be blank")
+      end
+      it '配送料の負担 のidが空のとき' do
+        @item.postage_included_id = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Postage included can't be blank")
+      end
+      it '発送元の地域 のidが空のとき' do
+        @item.send_day_id = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Send day can't be blank")
+      end
+      it '発送までの日数 のidが空のとき' do
+        @item.send_day_id = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Send day can't be blank")
+
+      end
+
     end
   end
 end
