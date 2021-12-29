@@ -47,11 +47,8 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:item_name, :item_text, :item_category_id, :item_condition_id, :postage_included_id, :area_id, :price,
                                  :send_day_id, :image).merge(user_id: current_user.id)
   end
-  def authenticate_user!
-    unless user_signed_in?
-      redirect_to anctin: :index
-    end
-  end  
+ 
+
   def item_info
     @item = Item.find(params[:id])
   end
