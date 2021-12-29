@@ -20,13 +20,10 @@ class ItemsController < ApplicationController
   end
 
   def show
-    
   end
 
   def edit
-    unless current_user.id == @item.user_id
-      redirect_to action: :index
-    end
+    redirect_to action: :index unless current_user.id == @item.user_id
   end
 
   def update
@@ -37,9 +34,11 @@ class ItemsController < ApplicationController
     end
   end
 
-  # def destroy
-  #   item = Item.find(params[:id])
-  # end
+  def destroy
+    item = Item.find(params[:id])
+    item.destroy
+    redirect_to action: :index
+  end
 
   private
 
@@ -47,7 +46,6 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:item_name, :item_text, :item_category_id, :item_condition_id, :postage_included_id, :area_id, :price,
                                  :send_day_id, :image).merge(user_id: current_user.id)
   end
- 
 
   def item_info
     @item = Item.find(params[:id])
