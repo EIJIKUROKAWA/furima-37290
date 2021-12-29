@@ -26,10 +26,11 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     if current_user.id == @prototype.user_id
 
-    else redirect_to action: :index
-    
+    else
+      redirect_to action: :index
+
     end
-  end  
+  end
 
   def update
     @item = Item.find(params[:id])
@@ -38,7 +39,6 @@ class ItemsController < ApplicationController
     else
       render :edit
     end
-
   end
 
   # def destroy
