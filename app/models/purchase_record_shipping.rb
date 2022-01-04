@@ -7,7 +7,7 @@ class PurchaseRecordShipping
     validates :shipping_number, format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: 'is invalid. Include hyphen(-)' }
     validates :shipping_city
     validates :shipping_address
-    validates :telephone_number, format: { with: /\A[0-9]{11}\z/, message: 'is invalid' }
+    validates :telephone_number, format: { with: /\A[0-9]{10,11}\z/, message: 'is invalid' }
     validates :area_id, numericality: { other_than: 0, message: "can't be blank" }
     validates :user_id
     validates :item_id

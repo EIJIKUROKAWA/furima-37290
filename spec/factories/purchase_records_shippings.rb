@@ -1,7 +1,6 @@
 FactoryBot.define do
   factory :purchase_record_shipping do
-    user_id          { 1 }
-    item_id          { 2 }
+    
     shipping_number  { '000-0000' }
     area_id          { 1 }
     shipping_city    { '札幌市' }

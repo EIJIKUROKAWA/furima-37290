@@ -3,9 +3,10 @@ require 'rails_helper'
 RSpec.describe PurchaseRecordShipping, type: :model do
   describe '商品購入機能' do
     before do
-      user = 1
-      item = 1
-      @purchase_record_shipping = FactoryBot.build(:purchase_record_shipping, user_id: user,item_id: item)
+      user = FactoryBot.create(:user)
+      item = FactoryBot.create(:item)
+      @purchase_record_shipping = FactoryBot.build(:purchase_record_shipping, user_id: user.id, item_id: item.id)
+      sleep 0.1
     end
     describe '配送先情報の保存' do
       context '商品保存がうまくいくとき' do
@@ -44,7 +45,8 @@ RSpec.describe PurchaseRecordShipping, type: :model do
           @purchase_record_shipping.telephone_number = 11_111_111_111
           expect(@purchase_record_shipping).to be_valid
         end
-
+      end
+    
         context '配送先情報の保存ができないとき' do
           it 'user_idが空だと保存できない' do
             @purchase_record_shipping.user_id = nil
@@ -107,8 +109,17 @@ RSpec.describe PurchaseRecordShipping, type: :model do
             @purchase_record_shipping.valid?
             expect(@purchase_record_shipping.errors.full_messages).to include("Token can't be blank")
           end
+          it '9桁以下の電話番号は登録できないこと' do
+            @purchase_record_shipping.telephone_number = 111_111_111
+            @purchase_record_shipping.valid?
+            expect(@purchase_record_shipping.errors.full_messages).to include('Telephone number is invalid')
+          end
+          it '電話番号に半角数字以外が含まれている場合は購入できないこと' do
+            @purchase_record_shipping.telephone_number = "11111111111あ"
+            @purchase_record_shipping.valid?
+            expect(@purchase_record_shipping.errors.full_messages).to include('Telephone number is invalid')
+          end
         end
       end
     end
   end
-end
