@@ -6,7 +6,7 @@ RSpec.describe PurchaseRecordShipping, type: :model do
       user = FactoryBot.create(:user)
       item = FactoryBot.create(:item)
       @purchase_record_shipping = FactoryBot.build(:purchase_record_shipping, user_id: user.id, item_id: item.id)
-      sleep 0.1
+      sleep 0.4
     end
     describe '配送先情報の保存' do
       context '商品保存がうまくいくとき' do
@@ -65,7 +65,7 @@ RSpec.describe PurchaseRecordShipping, type: :model do
                                                                             'Shipping number is invalid. Include hyphen(-)')
         end
         it '郵便番号にハイフンがないと保存できないこと' do
-          @purchase_record_shipping.shipping_number = 1_111_111
+          @purchase_record_shipping.shipping_number = '1_111_111'
           @purchase_record_shipping.valid?
           expect(@purchase_record_shipping.errors.full_messages).to include('Shipping number is invalid. Include hyphen(-)')
         end
@@ -100,7 +100,7 @@ RSpec.describe PurchaseRecordShipping, type: :model do
           expect(@purchase_record_shipping.errors.full_messages).to include('Telephone number is invalid')
         end
         it '電話番号が12桁以上あると保存できないこと' do
-          @purchase_record_shipping.telephone_number = 111_111_111_111
+          @purchase_record_shipping.telephone_number = '111_111_111_111'
           @purchase_record_shipping.valid?
           expect(@purchase_record_shipping.errors.full_messages).to include('Telephone number is invalid')
         end
@@ -110,7 +110,7 @@ RSpec.describe PurchaseRecordShipping, type: :model do
           expect(@purchase_record_shipping.errors.full_messages).to include("Token can't be blank")
         end
         it '9桁以下の電話番号は登録できないこと' do
-          @purchase_record_shipping.telephone_number = 111_111_111
+          @purchase_record_shipping.telephone_number = '111_111_111'
           @purchase_record_shipping.valid?
           expect(@purchase_record_shipping.errors.full_messages).to include('Telephone number is invalid')
         end

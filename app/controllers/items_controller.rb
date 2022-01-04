@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :item_info, only: [:show, :edit, :update, :destroy]
-
+  before_action :judge, only: [:edit,:destroy]
   def index
     @items = Item.all.order('created_at DESC')
   end
@@ -23,7 +23,6 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    judge
     redirect_to root_path unless @item.purchase_record.nil?
   end
 
@@ -36,7 +35,6 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    judge
     @item.destroy
     redirect_to action: :index
   end
