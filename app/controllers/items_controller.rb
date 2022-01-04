@@ -24,9 +24,7 @@ class ItemsController < ApplicationController
 
   def edit
     judge
-    if @item.purchase_record != nil
-      redirect_to root_path
-    end
+    redirect_to root_path unless @item.purchase_record.nil?
   end
 
   def update
@@ -40,7 +38,7 @@ class ItemsController < ApplicationController
   def destroy
     judge
     @item.destroy
-    
+    redirect_to action: :index
   end
 
   private
@@ -55,10 +53,6 @@ class ItemsController < ApplicationController
   end
 
   def judge
-    if @item.user_id != current_user.id
-        redirect_to root_path
-     
-      end   
-  end   
-
+    redirect_to root_path if @item.user_id != current_user.id
+  end
 end
