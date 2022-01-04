@@ -3,7 +3,9 @@ require 'rails_helper'
 RSpec.describe PurchaseRecordShipping, type: :model do
   describe '商品購入機能' do
     before do
-      @purchase_record_shipping = FactoryBot.build(:purchase_record_shipping)
+      user = 1
+      item = 1
+      @purchase_record_shipping = FactoryBot.build(:purchase_record_shipping, user_id: user,item_id: item)
     end
     describe '配送先情報の保存' do
       context '商品保存がうまくいくとき' do
