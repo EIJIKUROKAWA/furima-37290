@@ -19,10 +19,10 @@ class Item < ApplicationRecord
   belongs_to :area
   belongs_to :send_day
 
-  validates :item_condition_id, numericality: { other_than: 1, message: "can't be blank" }
-  validates :item_category_id, numericality: { other_than: 1, message: "can't be blank" }
-  validates :postage_included_id, numericality: { other_than: 1, message: "can't be blank" }
-  validates :area_id, numericality: { other_than: 0, message: "can't be blank" }
-  validates :send_day_id, numericality: { other_than: 1, message: "can't be blank" }
+  validates :item_condition_id, numericality: { other_than: 1, message: "を選択してください" }
+  validates :item_category_id, numericality: { other_than: 1, message: "を選択してください" }
+  validates :postage_included_id, numericality: { other_than: 1, message: "を選択してください" }
+  validates :area_id, numericality: { other_than: 0, message: "を選択してください" }
+  validates :send_day_id, numericality: { other_than: 1, message: "を選択してください" }
   validates :image, presence: true
 end

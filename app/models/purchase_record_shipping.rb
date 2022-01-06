@@ -4,11 +4,11 @@ class PurchaseRecordShipping
                 :user_id, :token
 
   with_options presence: true do
-    validates :shipping_number, format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: 'is invalid. Include hyphen(-)' }
+    validates :shipping_number, format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: '（-）半角ハイフンを入れて入力してください' }
     validates :shipping_city
     validates :shipping_address
-    validates :telephone_number, format: { with: /\A[0-9]{10,11}\z/, message: 'is invalid' }
-    validates :area_id, numericality: { other_than: 0, message: "can't be blank" }
+    validates :telephone_number, format: { with: /\A[0-9]{10,11}\z/, message: '入力してください' }
+    validates :area_id, numericality: { other_than: 0, message: "を選択してください" }
     validates :user_id
     validates :item_id
     validates :token
