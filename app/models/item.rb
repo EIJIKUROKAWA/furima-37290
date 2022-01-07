@@ -9,7 +9,7 @@ class Item < ApplicationRecord
   validates :send_day_id, presence: true
 
   belongs_to :user
-  has_one_attached :image
+  has_many_attached :images
   has_one :purchase_record
 
   extend ActiveHash::Associations::ActiveRecordExtensions
@@ -24,5 +24,6 @@ class Item < ApplicationRecord
   validates :postage_included_id, numericality: { other_than: 1, message: "を選択してください" }
   validates :area_id, numericality: { other_than: 0, message: "を選択してください" }
   validates :send_day_id, numericality: { other_than: 1, message: "を選択してください" }
-  validates :image, presence: true
+  validates :images, presence: true
+  validates :images, length: { minimum: 1, maximum: 5, message: "は1枚以上5枚以下にしてください" }
 end
