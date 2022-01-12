@@ -18,7 +18,7 @@ ja:
         price: 価格
         send_day_id: 発送までの日数
         area_id: 発送元の地域
-        image: 画像
+        images: 画像
   activemodel:
    attributes:
     purchase_record_shipping:
