@@ -205,3 +205,13 @@
   font-weight: bold;
   font-size: 23px;
 }
+.other-images {
+  display: flex;
+}
+.other-image img {
+  margin-right: 10px;
+  width: 200px;
+  height: 200px;
+  object-fit: full;
+}
+

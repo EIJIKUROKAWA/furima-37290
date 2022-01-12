@@ -227,3 +227,16 @@
 .inc {
   font-size: 13px;
 }
+.sample img{
+  height: 150px;
+  width: 150px;
+  
+}
+.img-upload{-ms-flex-align: center;}
+
+.image-delete-button {
+  text-align: center;
+  border: solid 1px;
+  cursor: pointer;
+  margin-bottom: 5px;
+}
